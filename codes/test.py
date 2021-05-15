@@ -1,18 +1,20 @@
-from PyQt5.QtWidgets import QApplication, QWidget
-from PyQt5.QtCore import QT_VERSION_STR
-from PyQt5.Qt import PYQT_VERSION_STR
-from sip import SIP_VERSION_STR
+import sys
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+from PyQt5.Qsci import QsciScintilla, QsciLexerPython
 
-if __name__=='__main__':
-    import sys
-    app=QApplication(sys.argv)
-    w=QWidget();
-    w.resize(640, 320);
-    w.move(400, 200);
-    w.setWindowTitle("Empty Window")
-    w.show()
-    print("Qt5 Version Number is: {0}".format(QT_VERSION_STR))
-    print("PyQt5 Version is: {}".format(PYQT_VERSION_STR))
-    print("Sip Version is: {}".format(SIP_VERSION_STR))
 
-    sys.exit(app.exec_())
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    font = QFont()
+    font.setFamily('Courier')
+    font.setFixedPitch(True)
+    editor = QsciScintilla()
+    editor.setFont(font)
+    lexer = QsciLexerPython()
+    lexer.setFont(font)
+    editor.setLexer(lexer)
+    editor.show()
+    editor.setText(open(sys.argv[0]).read())
+    app.exec_()
