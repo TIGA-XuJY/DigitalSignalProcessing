@@ -16,5 +16,5 @@ y1 = np.sin(x1)#依据x1序列的值，生成对应sin的y1序列
 plt.subplot(1,2,2)#此处为切成为两个横的子图，在第二个子图中画图
 plt.title(r'$f(x)=sin(\omega x), \omega = \frac{3}{8} \pi$')
 #设置title，\omega显示w，\frac显示分数，\pi显示π
-plt.plot(x1, y1)#依据x1,y1在一个子图中画图
+plt.plot(x, y1)#依据x1,y1在一个子图中画图
 plt.show()#将图显示出来
